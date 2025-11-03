@@ -1,4 +1,6 @@
 const container = document.getElementById('container');
+const changeSizeBtn = document.getElementById('button');
+
         const gridSize = 16;
 
         function createGrid(size) {
