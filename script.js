@@ -1,30 +1,30 @@
 const container = document.getElementById('container');
-const changeSizeBtn = document.getElementById('button');
+const changeSizeBtn = document.getElementById('changeSizeButton');
 
-        const gridSize = 16;
+let gridSize = 16;
 
-        function createGrid(size) {
-            //Полное обновление сетки. Удаляем ранее созданную сетку.
-            container.innerHTML = "";
-            const squareSize = 960 / size;
-            for (let i = 0; i < size * size; i++) {
-                const square = document.createElement('div');
-                square.classList.add('grid-square');
-                square.style.width = `${squareSize}px`;
-                square.style.height = `${squareSize}px`;
+function createGrid(size) {
+    container.innerHTML = "";
+    const squareSize = 960 / size;
+    for (let i = 0; i < size * size; i++) {
+        const square = document.createElement('div');
+        square.classList.add('grid-square');
+        square.style.width = `${squareSize}px`;
+        square.style.height = `${squareSize}px`;
 
-                square.addEventListener("mouseenter", 
-                    () => square.style.backgroundColor = 'black');
+        square.addEventListener("mouseenter",
+            () => square.style.backgroundColor = 'black');
 
-                container.appendChild(square);
-            }
-        }
+        container.appendChild(square);
+    }
+}
 
 function changeGridSize() {
     let newSize = prompt("Enter new square quantity per side", 16);
     newSize = parseInt(newSize);
-    if(newSize > 0 || newSize <= 100) {
+    if (newSize > 0 || newSize <= 100) {
         gridSize = newSize;
+        createGrid(gridSize);
     } else if (newSize > 100) {
         console.log("Maximum squares per side is 100!");
     } else {
