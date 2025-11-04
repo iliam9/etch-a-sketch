@@ -22,13 +22,13 @@ function createGrid(size) {
 function changeGridSize() {
     let newSize = prompt("Enter new square quantity per side", 16);
     newSize = parseInt(newSize);
-    if (newSize > 0 || newSize <= 100) {
+    if (newSize > 0 && newSize <= 100) {
         gridSize = newSize;
         createGrid(gridSize);
     } else if (newSize > 100) {
-        console.log("Maximum squares per side is 100!");
+        alert("Maximum squares per side is 100!");
     } else {
-        console.log("Wrong input. Enter a number between 1 and 100.");
+        alert("Wrong input. Enter a number between 1 and 100.");
     }
 }
 
